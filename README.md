@@ -1,12 +1,12 @@
-## InstaSentiment
+## Akshita's Instagram Sentiment Analyzer
 
-InstaSentiment is a powerful NLP (Natural Language Processing) project aimed at analyzing the sentiment of Instagram posts. It provides users with valuable insights into the positivity and negativity of comments on a given post URL and store valuable information in PostgreSQL server then Visualize with power bi.
+Created by **Akshita Malayathi** - This is my NLP (Natural Language Processing) project for analyzing the sentiment of Instagram posts. It provides valuable insights into the positivity and negativity of comments on a given post URL, stores information in PostgreSQL server, and visualizes results with Power BI.
+
 ![Blue and Yellow Modern Data Analysis Presentation](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/4167606d-cd93-425d-af7e-fc375db7d04d)
-
 
 ### Overview
 
-InstaSentiment is designed to seamlessly analyze sentiment through a user-friendly web interface. It employs a combination of web scraping, NLP techniques, machine learning algorithms, and data visualization to deliver comprehensive sentiment analysis results.
+My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment through a user-friendly web interface. It employs a combination of web scraping, NLP techniques, machine learning algorithms, and data visualization to deliver comprehensive sentiment analysis results.
 
 ### Features
 

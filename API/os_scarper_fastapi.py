@@ -33,10 +33,28 @@ app.add_middleware(
 )
 
 
+@app.get("/")
+async def root():
+    return {
+        "message": "Akshita's Instagram Sentiment Analyzer API",
+        "author": "Created by Akshita Malayathi",
+        "description": "My NLP project for analyzing sentiment of Instagram comments using machine learning",
+        "technologies": ["FastAPI", "Selenium", "NLTK", "Scikit-learn", "BeautifulSoup"],
+        "endpoints": {
+            "docs": "/docs - Interactive API documentation",
+            "scrape": "/scarper/ - POST endpoint for scraping Instagram posts",
+            "csv": "/test_insta.csv - GET endpoint for downloading analysis results"
+        },
+        "usage": "Send POST request to /scarper/ with JSON body: {\"url\": \"instagram_post_url\"}",
+        "github": "https://github.com/akshita1610/Instagram-Sentiment-Analyzer"
+    }
+
+
 #uvicorn main:app --reload
 #python -m uvicorn os_scarper_fastapi:app --reload
 class Scraping_URL_Page(BaseModel):
     url: str
+     
     
 
 

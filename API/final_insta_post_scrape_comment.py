@@ -20,14 +20,12 @@ def scraping_comments_insta_post(link_post):
 
 
     chrome_options = Options()
-    # chrome_options.add_argument("--disable-extensions")
-    # chrome_options.add_argument("--disable-gpu")
-    # chrome_options.add_argument("--no-sandbox") # linux only
-    chrome_options.add_argument("--headless=new") # for Chrome >= 109
-    # chrome_options.add_argument("--headless")
-    # chrome_options.headless = True # also works
-    #driver = webdriver.Chrome(options=chrome_options)
-    driver = webdriver.Edge()
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--headless=new")
+    chrome_options.add_argument("--window-size=1920,1080")
+    driver = webdriver.Chrome(options=chrome_options)
 
 
     # Open the URL of the webpage
@@ -52,9 +50,22 @@ def scraping_comments_insta_post(link_post):
 
 
 
-    for i in range(25):
-        driver.execute_script('document.querySelector(\'[class="x5yr21d xw2csxc x1odjw0f x1n2onr6"]\').scrollBy(0,50000)')
-        time.sleep(0.6)
+    # Wait for page to load and scroll to load comments
+    time.sleep(5)
+    
+    # Try multiple scrolling methods
+    for i in range(10):
+        try:
+            # Try the original method first
+            driver.execute_script('document.querySelector(\'[class="x5yr21d xw2csxc x1odjw0f x1n2onr6"]\').scrollBy(0,50000)')
+        except:
+            try:
+                # Fallback to window scrolling
+                driver.execute_script('window.scrollBy(0, 5000)')
+            except:
+                # Final fallback - scroll to bottom
+                driver.execute_script('window.scrollTo(0, document.body.scrollHeight)')
+        time.sleep(1)
 
     
     time.sleep(3)
