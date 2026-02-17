@@ -36,7 +36,7 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {
-        "message": "Akshita's Instagram Sentiment Analyzer API",
+        "message": "Instagram Sentiment Analyzer API",
         "author": "Created by Akshita Malayathi",
         "description": "My NLP project for analyzing sentiment of Instagram comments using machine learning",
         "technologies": ["FastAPI", "Selenium", "NLTK", "Scikit-learn", "BeautifulSoup"],

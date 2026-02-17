@@ -1,4 +1,4 @@
-## Akshita's Instagram Sentiment Analyzer
+## Instagram Sentiment Analyzer
 
 Created by **Akshita Malayathi** - This is my NLP (Natural Language Processing) project for analyzing the sentiment of Instagram posts. It provides valuable insights into the positivity and negativity of comments on a given post URL, stores information in PostgreSQL server, and visualizes results with Power BI.
 
