@@ -2,20 +2,18 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
+from pydantic import BaseModel
 import os
-import pandas as pd
-from final_insta_post_scrape_comment import scraping_comments_insta_post
-
 import pandas as pd
 from final_insta_post_scrape_comment import scraping_comments_insta_post
 from four import make_the_four
 from server_info import send_server
 
-
 app = FastAPI()
 
 # CORS configuration
 origins = [
+    "*",
     "http://localhost",
     'http://127.0.0.1:5501',
     'http://127.0.0.1:5502',
@@ -28,7 +26,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["GET", "POST", "PUT", "DELETE"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
 )
 
@@ -67,6 +65,10 @@ class Scraping_URL_Page(BaseModel):
 
 
 
+
+@app.get("/test")
+async def test_endpoint():
+    return {"message": "Test endpoint working", "status": "success"}
 
 @app.post("/scarper/")
 async def predict_diabetes(data: Scraping_URL_Page):

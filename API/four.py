@@ -33,7 +33,7 @@ def make_the_four(df,l):
 
     
 
-    df_comments = pd.concat([df,pd.DataFrame(np.array(ExtractFeatuers().fit_transform(df["User_Comment_Pre"],Freqs_Pre)), columns=["bias","pos","neg"])],axis= 1).drop(columns=["bias"])
+    df_comments = pd.concat([df,pd.DataFrame(ExtractFeatuers().fit_transform(df["User_Comment_Pre"],Freqs_Pre), columns=["bias","pos","neg"])],axis= 1).drop(columns=["bias"])
 
     df_users = df_comments[["User_Name","Profile_Link"]]
 

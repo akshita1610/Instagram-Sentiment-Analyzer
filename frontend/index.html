@@ -91,11 +91,18 @@
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.1);
         }
         
         .analyze-btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+        }
+        
+        .analyze-btn:active {
+            transform: translateY(0px);
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.2);
         }
         
         .results {
@@ -171,11 +178,13 @@
         </div>
         
         <div class="input-section">
-            <div class="input-group">
-                <label for="instagram-url">Instagram Post URL</label>
-                <input type="url" id="instagram-url" placeholder="https://www.instagram.com/p/..." required>
-            </div>
-            <button class="analyze-btn" onclick="analyzeSentiment()">Analyze Sentiment</button>
+            <form id="analyze-form">
+                <div class="input-group">
+                    <label for="instagram-url">Instagram Post URL</label>
+                    <input type="url" id="instagram-url" placeholder="https://www.instagram.com/p/..." required>
+                </div>
+                <button type="submit" class="analyze-btn">Analyze Sentiment</button>
+            </form>
         </div>
         
         <div id="results" class="results">
@@ -214,41 +223,58 @@
 
     <script>
         async function analyzeSentiment() {
+            console.log('Analyze button clicked'); // Debug log
+            alert('Button clicked! Starting analysis...'); // Immediate feedback
+            
             const url = document.getElementById('instagram-url').value;
+            console.log('URL entered:', url); // Debug log
             
             if (!url) {
-                showError('Please enter an Instagram URL');
+                alert('Please enter an Instagram URL');
                 return;
             }
             
-            // Validate URL format
-            if (!url.includes('instagram.com/p/')) {
-                showError('Please enter a valid Instagram post URL');
-                return;
-            }
-            
+            // Skip validation for now - just try the API
             showLoading(true);
             hideError();
             hideResults();
             
             try {
-                const response = await fetch('http://127.0.0.1:8001/scarper/', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ url: url })
-                });
+                console.log('Sending API request to:', url); // Debug log
                 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                // Simple test first
+                const testResponse = await fetch('http://127.0.0.1:8002/test');
+                console.log('Test response:', testResponse);
+                const testData = await testResponse.json();
+                console.log('Test data:', testData);
+                
+                if (testData.status === 'success') {
+                    alert('API connection working! Now trying full analysis...');
+                    
+                    const response = await fetch('http://127.0.0.1:8002/scarper/', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ url: url })
+                    });
+                    
+                    console.log('Response status:', response.status); // Debug log
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    console.log('API response:', data); // Debug log
+                    displayResults(data);
+                } else {
+                    alert('API connection failed!');
                 }
-                
-                const data = await response.json();
-                displayResults(data);
                 
             } catch (error) {
                 console.error('Error:', error);
+                alert('Error: ' + error.message);
                 showError('Failed to analyze sentiment. Please try again.');
             } finally {
                 showLoading(false);
@@ -294,11 +320,18 @@
             document.getElementById('sentiment-results').style.display = 'block';
         }
         
-        // Enter key press handler
+        // Enter key press handler and form submission
         document.getElementById('instagram-url').addEventListener('keypress', function(e) {
             if (e.key === 'Enter') {
-                analyzeSentiment();
+                e.preventDefault(); // Prevent default form behavior
+                analyzeSentiment(); // Trigger analysis
             }
+        });
+        
+        // Form submission handler
+        document.getElementById('analyze-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            analyzeSentiment(); // Trigger analysis
         });
     </script>
 </body>
