@@ -47,13 +47,20 @@ My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment thro
 
 ### Getting Started
 
-To get started with InstaSentiment, follow these steps:
+To get started with Instagram Sentiment Analyzer, follow these steps:
 
 1. Clone the repository.
 2. Install the required dependencies listed in `requirements.txt`.
 3. Set up a PostgreSQL database and configure the connection.
 4. Run the FastAPI server.
 5. Access the web application and start analyzing Instagram post sentiments.
+
+### Alternative Implementation
+
+For a different approach using Django + React frontend, check out this similar project:
+- [Subhankar's InstaSentiment-Analyzer](https://github.com/sahoo-subhankar/InstaSentiment-Analyzer)
+- Features Django REST API with React frontend
+- Uses Instaloader for Instagram data extraction
 
 ### Contributors
 
