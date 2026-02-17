@@ -1,16 +1,25 @@
 ## Instagram Sentiment Analyzer
 
-Created by **Akshita Malayathi** - This is my NLP (Natural Language Processing) project for analyzing the sentiment of Instagram posts. It provides valuable insights into the positivity and negativity of comments on a given post URL, stores information in PostgreSQL server, and visualizes results with Power BI.
-
+Created by **Akshita Malayathi** - This is my enhanced NLP (Natural Language Processing) project for analyzing sentiment of Instagram posts. It combines the best approaches from multiple implementations to provide comprehensive sentiment analysis with a professional web interface.
 
 ### Overview
 
-My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment through a user-friendly web interface. It employs a combination of web scraping, NLP techniques, machine learning algorithms, and data visualization to deliver comprehensive sentiment analysis results.
+My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment through a beautiful, user-friendly web interface. It employs a combination of web scraping, advanced NLP techniques, machine learning algorithms, and real-time data visualization to deliver comprehensive sentiment analysis results.
+
+### Enhanced Features
+
+- **Professional Web Interface**: Beautiful, responsive design with real-time sentiment visualization
+- **FastAPI Backend**: High-performance API server for efficient data processing
+- **Advanced Scraping**: Robust Selenium-based Instagram comment extraction with error handling
+- **Enhanced NLP**: Combines NLTK sentiment analysis with custom word lists
+- **Machine Learning**: Pre-trained Random Forest model for accurate sentiment prediction
+- **Real-time Visualization**: Interactive charts showing positive/negative sentiment percentages
+- **Data Storage**: PostgreSQL integration for persistent data storage
+- **CSV Export**: Downloadable analysis results for further processing
 
 ### Features
 
 - **Web Application**: Users can input the URL of an Instagram post through a web interface.
-
 
 - **FastAPI Server Integration**: The web app communicates with a FastAPI server for efficient data processing.
 

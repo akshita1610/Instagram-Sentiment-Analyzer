@@ -1,7 +1,7 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 import os
 import pandas as pd
 from final_insta_post_scrape_comment import scraping_comments_insta_post
@@ -32,9 +32,17 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Mount static files and frontend
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 @app.get("/")
 async def root():
+    # Serve the frontend HTML
+    frontend_path = os.path.join(os.path.dirname(__file__), "..", "frontend", "index.html")
+    if os.path.exists(frontend_path):
+        with open(frontend_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read(), media_type="text/html")
+    
     return {
         "message": "Instagram Sentiment Analyzer API",
         "author": "Created by Akshita Malayathi",
