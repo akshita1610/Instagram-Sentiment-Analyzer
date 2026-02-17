@@ -2,7 +2,6 @@
 
 Created by **Akshita Malayathi** - This is my NLP (Natural Language Processing) project for analyzing the sentiment of Instagram posts. It provides valuable insights into the positivity and negativity of comments on a given post URL, stores information in PostgreSQL server, and visualizes results with Power BI.
 
-![Blue and Yellow Modern Data Analysis Presentation](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/4167606d-cd93-425d-af7e-fc375db7d04d)
 
 ### Overview
 
@@ -12,7 +11,6 @@ My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment thro
 
 - **Web Application**: Users can input the URL of an Instagram post through a web interface.
 
-![image](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/1c079e63-b17a-4327-bea9-3dabf4794396)
 
 - **FastAPI Server Integration**: The web app communicates with a FastAPI server for efficient data processing.
 
@@ -21,17 +19,13 @@ My Instagram Sentiment Analyzer is designed to seamlessly analyze sentiment thro
 
 
 
-![image](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/87ddecc3-0839-4793-8921-8dc9af6831a1)
 - **Sentiment Analysis**: Employs NLTK for NLP tasks, including tokenization and sentiment analysis.
 
 
 - **Machine Learning**: Develops a sentiment prediction model using various machine learning algorithms.
 - **Data Storage**: Stores comments and sentiment data in PostgreSQL for future analysis.
 
-![image](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/0f331379-25b2-45b0-b5ed-7b8bd39e1188)
 - **Power BI Dashboard**: Visualizes sentiment insights through a Power BI report for easy interpretation.
-![image](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/c9d0bec5-5dac-42d3-93a3-7b6095f2fecb)
-![image](https://github.com/MohammadMoataz2/Diabetes-Insight-and-Model-Mastery-with-KNIME-and-python/assets/123085286/e97edccb-1f94-419c-a24b-330be1ba5ded)
 ### Achievements
 
 - Streamlined sentiment analysis of Instagram posts with an intuitive web interface.
